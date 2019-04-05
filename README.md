@@ -1,0 +1,2 @@
+# sharedHotRestaurant
+in class activity
