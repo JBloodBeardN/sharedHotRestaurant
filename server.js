@@ -57,4 +57,5 @@ app.post("/api/newReservation", function(req, res){
     } else {
         reservationArray.push(req.body);
     }
+    res.json(req.body);
 })
