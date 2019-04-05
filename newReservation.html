@@ -74,12 +74,12 @@
 
       var newReservation = {
         name: $("#name").val().trim(),
-        role: $("#phoneNumber").val().trim(),
-        age: $("#email").val().trim(),
+        phone: $("#phoneNumber").val().trim(),
+        email: $("#email").val().trim(),
       };
 
       // Question: What does this code do??
-      $.post("/api/newReservations", newReservation)
+      $.post("/api/newReservation", newReservation)
         .then(function(data) {
           console.log(data);
           alert("Adding reservation....");
