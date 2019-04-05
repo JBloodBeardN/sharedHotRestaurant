@@ -43,12 +43,18 @@ app.listen(PORT, function() {
   app.get("/newReservation", function(req, res) {
     res.sendFile(path.join(__dirname, "newReservation.html"));
   });
-
-app.get("/*", function(req, res) {
+   app.get("/api/tables", function(req, res) {
+     return (res.json(reservationArray),res.json(waitlistArray));
+   });
+   app.get("/*", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
   
-//   // Displays all characters
-//   app.get("/api/characters", function(req, res) {
-//     return res.json(characters);
-//   });
+app.post("/api/newReservation", function(req, res){
+    //inspect length of reservationArray
+    if(reservationArray.length>4){
+        waitlistArray.push(req.body);
+    } else {
+        reservationArray.push(req.body);
+    }
+})
