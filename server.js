@@ -50,11 +50,12 @@ app.listen(PORT, function() {
     res.sendFile(path.join(__dirname, "index.html"));
   });
   
-app.post("/api/newReservation", function(req, res){
+app.post("/api/newReservations", function(req, res){
     //inspect length of reservationArray
     if(reservationArray.length>4){
         waitlistArray.push(req.body);
     } else {
         reservationArray.push(req.body);
     }
+    res.json(req.body);
 })
